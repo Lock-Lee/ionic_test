@@ -9,6 +9,13 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class HomePage implements OnInit{
 
   constructor(public fb:AngularFireDatabase){
+    this.fb.list("/logs").push({
+      Temperature:Math.random(),
+      Humadity:Math.random(),
+      Time:new Date().getDate()
+    
+    
+    })
 
   }
   ngOnInit(){
