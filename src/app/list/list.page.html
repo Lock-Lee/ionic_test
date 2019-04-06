@@ -10,6 +10,19 @@
 </ion-header>
 
 <ion-content>
+  <div padding>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">ค้นหา</ion-label>
+        <ion-input
+          [(ngModel)]="serchLogs"
+          type="text"
+          (keyup)="OnSerch(dataSerchLogs)"
+        ></ion-input>
+      </ion-item>
+    </ion-card>
+  </div>
+  
   <div style="position: absolute;z-index: 100;right: 20px;bottom: 20px">
     <button type="button" class="btn btn-warning">Warning</button>
   </div>
@@ -26,15 +39,32 @@
             <th scope="col">First</th>
             <th scope="col">Two</th>
             <th scope="col">Thee</th>
+            <th scope="col">foad</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let i of dataLogs; let x = index">
+          <tr *ngFor="let i of dataSerchLogs; let x = index">
             <td style="vertical-align: middle">{{ x + 1 }}</td>
             <td style="vertical-align: middle">{{ i.key }}</td>
             <td style="vertical-align: middle">{{ i.payload.Humadity }}</td>
-            <td style="vertical-align: middle"> {{ i.payload.Temperature }}</td>
-            <td><button type="button" class="btn btn-success btn-sm" (click)="onDelete(i.key)" >ลบ</button></td>
+            <td style="vertical-align: middle">{{ i.payload.Temperature }}</td>
+            
+              <span style="margin : 0px 5px 0px 5px"><button
+                type="button"
+                class="btn btn-primary btn-sm"
+                [routerLink]="['/listupdate',convertJson(i)]" 
+                routerDirection="forward"
+              > แก้ไข </button></span>
+              <span style="margin : 0px 5px 0px 5px">
+              <button
+                type="button"
+                class="btn btn-success btn-sm"
+                (click)="onDelete(i.key)"
+              >
+                ลบ
+              </button>
+            </span>
+            
           </tr>
         </tbody>
       </table>

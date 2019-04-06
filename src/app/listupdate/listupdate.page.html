@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>แก้ไข</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <form [formGroup]="formUpdateList" (ngSubmit)="onUpdate()">
+      <div padding>
+        <ion-card>
+          <ion-item>
+            <ion-label position="floating">key</ion-label>
+            <ion-input type="text" formControlName="key" readonly></ion-input>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div padding>
+        <ion-card>
+          <ion-item>
+            <ion-label position="floating">Temperature</ion-label>
+            <ion-input type="text" formControlName="Temperature"></ion-input>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div padding>
+        <ion-card>
+          <ion-item>
+            <ion-label position="floating">Humaity</ion-label>
+            <ion-input type="text" formControlName="Humadity"></ion-input>
+          </ion-item>
+        </ion-card>
+      </div>
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="formUpdateList.invalid"
+        >ตกลง</ion-button
+      >
+    </form>
+  </div>
+</ion-content>
