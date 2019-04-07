@@ -11,29 +11,33 @@
 
 <ion-content>
   <div *ngIf="dataDHT">
-  <ngx-gauge
-    type="arch"
-    [value]="dataDHT.Temperature"
-    label="Temperture"
-    append="°C"
-    foregroundColor="rgb(16, 4, 68)"
-    [thick] = "screenDisplay.width"
-    cap ="round"
-    [thresholds]="thresholdConfig"
-    max = "100"
-    [size] = "screenDisplay.heiht"
-  ></ngx-gauge>
-  <ngx-gauge
-    type="arch"
-    [value]="dataDHT.Humidity"
-    label="Humadity"
-    append="%"
-    foregroundColor="rgb(16, 4, 68)"
-    [gthick] = "screenDisplay.width"
-    cap ="round"
-    [thresholds]="thresholdConfig"
-    max = "100"
-    [size] = "screenDisplay.heiht"
-  ></ngx-gauge>
-</div>
+    <ngx-gauge
+      type="arch"
+      [value]="dataDHT.Temperature"
+      label="Temperture"
+      append="°C"
+      foregroundColor="rgb(16, 4, 68)"
+      [thick]="screenDisplay.w"
+      cap="round"
+      [thresholds]="thresholdConfig"
+      max="100"
+      [size]="screenDisplay.h"
+    ></ngx-gauge>
+    <ngx-gauge
+      type="arch"
+      [value]="dataDHT.Humidity"
+      label="Humadity"
+      append="%"
+      foregroundColor="rgb(16, 4, 68)"
+      [thick]="screenDisplay.w"
+      cap="round"
+      [thresholds]="thresholdConfig"
+      max="100"
+      [size]="screenDisplay.h"
+    ></ngx-gauge>
+  </div>
+  <div>
+    <ion-toggle color="dark" [(ngModel)]="Sw_togle" (ionChange)="sw_onChage()">
+    </ion-toggle>
+  </div>
 </ion-content>
