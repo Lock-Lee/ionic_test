@@ -28,7 +28,7 @@ export class ListPage implements OnInit {
             payload: element.payload.val()
           });
         });
-        this.OnSerch("");
+        this.OnSerch(this.serchLogs);
         console.log(this.dataLogs);
       });
   }

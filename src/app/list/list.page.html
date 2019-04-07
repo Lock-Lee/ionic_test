@@ -29,17 +29,17 @@
 
   <div>
     <div
-      style="overflow: auto;max-height: 99vh;width: 99vw;"
+      style="overflow: auto;max-height: 70vh;width: 70vw;"
       *ngIf="dataLogs.length > 0"
     >
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Two</th>
-            <th scope="col">Thee</th>
-            <th scope="col">foad</th>
+            <th scope="col">No.</th>
+            <th scope="col">key</th>
+            <th scope="col">Humadity</th>
+            <th scope="col">Temperature</th>
+            <th scope="col">Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -48,11 +48,12 @@
             <td style="vertical-align: middle">{{ i.key }}</td>
             <td style="vertical-align: middle">{{ i.payload.Humadity }}</td>
             <td style="vertical-align: middle">{{ i.payload.Temperature }}</td>
-            
+            <td >
+              
               <span style="margin : 0px 5px 0px 5px"><button
                 type="button"
                 class="btn btn-primary btn-sm"
-                [routerLink]="['/listupdate',convertJson(i)]" 
+                [routerLink]="['/list/listupdate',convertJson(i)]" 
                 routerDirection="forward"
               > แก้ไข </button></span>
               <span style="margin : 0px 5px 0px 5px">
@@ -64,6 +65,7 @@
                 ลบ
               </button>
             </span>
+          </td>
             
           </tr>
         </tbody>
