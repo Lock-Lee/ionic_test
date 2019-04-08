@@ -1,3 +1,5 @@
+import { MyserviceService } from "./../services/myservice.service";
+import { MycrogearService } from "./../services/mycrogear.service";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { AngularFireDatabase } from "@angular/fire/database";
 export interface screen {
@@ -11,11 +13,12 @@ export interface screen {
 })
 export class HomePage implements OnInit, OnDestroy {
   public dataDHT: any;
-  
+  public readdataDHT: any;
+
   public Sw_togle: boolean = false;
   public screenDisplay: screen = {
-    w:0,
-    h:0
+    w: 0,
+    h: 0
   };
   public intercalreadsceen: any = null;
   public thresholdConfig = {
@@ -24,7 +27,11 @@ export class HomePage implements OnInit, OnDestroy {
     "75.5": { color: "red" }
   };
 
-  constructor(public fb: AngularFireDatabase) {
+  constructor(
+    public fb: AngularFireDatabase,
+    public mi: MycrogearService,
+    public ser: MyserviceService
+  ) {
     this.fb.list("/logs").push({
       Temperature: Math.random() * 100,
       Humadity: Math.random() * 100,
@@ -46,11 +53,12 @@ export class HomePage implements OnInit, OnDestroy {
     }, 100);
   }
   ngOnInit() {
+    console.log(this.mi.microgaer());
     this.fb
       .object("/DHT")
       .valueChanges()
       .subscribe((value: any) => {
-        console.log(value);
+        //console.log(value);
         this.dataDHT = value;
       });
     this.fb

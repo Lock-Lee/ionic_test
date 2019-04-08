@@ -33,7 +33,7 @@ export class ListPage implements OnInit {
           });
         });
         this.OnSerch(this.serchLogs);
-        console.log(this.dataLogs);
+        //console.log(this.dataLogs);
       });
   }
   public onDelete(key: string) {
@@ -68,11 +68,11 @@ export class ListPage implements OnInit {
               c.payload.Humadity.toString().search(txt) != -1
           )
         : this.dataLogs;
-     console.log(this.dataLogs.filter(
-      (c: any) =>
-        c.payload.Temperature.toString().search(txt) != -1 ||
-        c.payload.Humadity.toString().search(txt) != -1
-    ));
+    //  console.log(this.dataLogs.filter(
+    //   (c: any) =>
+    //     c.payload.Temperature.toString().search(txt) != -1 ||
+    //     c.payload.Humadity.toString().search(txt) != -1
+    // ));
   }
 
   public convertJson(data:any){
